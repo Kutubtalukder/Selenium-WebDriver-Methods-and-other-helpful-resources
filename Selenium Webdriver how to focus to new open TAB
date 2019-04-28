@@ -1,0 +1,17 @@
+//This method can help you to focus on new tab when testing with Selenium WebDriver where a new tab opens up and needs focus to perform actions and return to main Tab
+
+ Set<String> handles = driver.getWindowHandles();
+    String currentHandle = driver.getWindowHandle();
+    for (String handle : handles) {
+
+     if (!handle .equals(currentHandle))
+     {
+         driver.switchTo().window(handle);
+     }
+   }
+
+   //fill your form in the other tab
+
+
+   //go back to first tab if you want using the below code if not needed to go to main tab comment or delete the code
+    driver.switchTo().window(currentHandle);
